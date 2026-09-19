@@ -1,0 +1,451 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Como la Original — design system.
+ * Brand palette: chocolate #3A2E2A, orange #FF8A00, mauve #A77C8F,
+ * light pink #F7D7E2, cream #FFF2E6, beige #E9D7C2.
+ * All colors are oklch semantic tokens. Never hardcode hex in components.
+ */
+
+@theme inline {
+  --font-display: "Baloo 2", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 20px);
+  --radius-4xl: calc(var(--radius) + 32px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-blush: var(--blush);
+  --color-mauve: var(--mauve);
+  --color-mauve-foreground: var(--mauve-foreground);
+  --color-cocoa: var(--cocoa);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: 0 2px 10px -4px oklch(0.3132 0.0191 39.26 / 0.12);
+  --shadow-card: 0 10px 30px -18px oklch(0.3132 0.0191 39.26 / 0.35);
+  --shadow-pop: 0 18px 40px -22px oklch(0.3132 0.0191 39.26 / 0.45);
+}
+
+:root {
+  --radius: 1.25rem;
+
+  --cream: oklch(0.9681 0.0212 65.32);
+  --beige: oklch(0.8882 0.0345 71.63);
+  --blush: oklch(0.9089 0.0382 355.13);
+  --cocoa: oklch(0.3132 0.0191 39.26);
+
+  --background: oklch(0.9681 0.0212 65.32);
+  --foreground: oklch(0.3132 0.0191 39.26);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.3132 0.0191 39.26);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.3132 0.0191 39.26);
+
+  --primary: oklch(0.7474 0.1801 57.36);
+  --primary-foreground: oklch(0.3132 0.0191 39.26);
+
+  --secondary: oklch(0.9228 0.0302 73.89);
+  --secondary-foreground: oklch(0.3132 0.0191 39.26);
+
+  --muted: oklch(0.9228 0.0302 73.89);
+  --muted-foreground: oklch(0.4859 0.0265 39.26);
+
+  --accent: oklch(0.9089 0.0382 355.13);
+  --accent-foreground: oklch(0.3132 0.0191 39.26);
+
+  --mauve: oklch(0.6343 0.0592 350.69);
+  --mauve-foreground: oklch(1 0 0);
+
+  --success: oklch(0.5203 0.1073 155.5);
+  --warning: oklch(0.6097 0.1802 35.38);
+
+  --destructive: oklch(0.5477 0.2 27.325);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.8882 0.0345 71.63);
+  --input: oklch(0.8882 0.0345 71.63);
+  --ring: oklch(0.7474 0.1801 57.36);
+
+  --chart-1: oklch(0.7474 0.1801 57.36);
+  --chart-2: oklch(0.6343 0.0592 350.69);
+  --chart-3: oklch(0.3132 0.0191 39.26);
+  --chart-4: oklch(0.8882 0.0345 71.63);
+  --chart-5: oklch(0.9089 0.0382 355.13);
+
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.3132 0.0191 39.26);
+  --sidebar-primary: oklch(0.7474 0.1801 57.36);
+  --sidebar-primary-foreground: oklch(0.3132 0.0191 39.26);
+  --sidebar-accent: oklch(0.9089 0.0382 355.13);
+  --sidebar-accent-foreground: oklch(0.3132 0.0191 39.26);
+  --sidebar-border: oklch(0.8882 0.0345 71.63);
+  --sidebar-ring: oklch(0.7474 0.1801 57.36);
+}
+
+/*
+ * Dark mode — warm cocoa night palette. Brand orange/mauve kept,
+ * lightness relationships inverted from the light theme.
+ */
+.dark {
+  --cream: oklch(0.2241 0.0173 45.2);
+  --beige: oklch(0.3224 0.0243 48.5);
+  --blush: oklch(0.3418 0.0338 358.4);
+  --cocoa: oklch(0.9537 0.0189 75.4);
+
+  --background: oklch(0.2003 0.0156 44.8);
+  --foreground: oklch(0.9537 0.0189 75.4);
+  --card: oklch(0.2607 0.0198 46.1);
+  --card-foreground: oklch(0.9537 0.0189 75.4);
+  --popover: oklch(0.2607 0.0198 46.1);
+  --popover-foreground: oklch(0.9537 0.0189 75.4);
+
+  --primary: oklch(0.7698 0.1758 58.2);
+  --primary-foreground: oklch(0.2241 0.0173 45.2);
+
+  --secondary: oklch(0.3224 0.0243 48.5);
+  --secondary-foreground: oklch(0.9537 0.0189 75.4);
+
+  --muted: oklch(0.3224 0.0243 48.5);
+  --muted-foreground: oklch(0.7526 0.0294 68.9);
+
+  --accent: oklch(0.3418 0.0338 358.4);
+  --accent-foreground: oklch(0.9537 0.0189 75.4);
+
+  --mauve: oklch(0.7294 0.0612 351.2);
+  --mauve-foreground: oklch(0.2241 0.0173 45.2);
+
+  --destructive: oklch(0.6271 0.1836 26.4);
+  --destructive-foreground: oklch(0.97 0.01 80);
+
+  --border: oklch(0.3612 0.0262 48.9);
+  --input: oklch(0.3612 0.0262 48.9);
+  --ring: oklch(0.7698 0.1758 58.2);
+
+  --chart-1: oklch(0.7698 0.1758 58.2);
+  --chart-2: oklch(0.7294 0.0612 351.2);
+  --chart-3: oklch(0.9537 0.0189 75.4);
+  --chart-4: oklch(0.3612 0.0262 48.9);
+  --chart-5: oklch(0.3418 0.0338 358.4);
+
+  --sidebar: oklch(0.2607 0.0198 46.1);
+  --sidebar-foreground: oklch(0.9537 0.0189 75.4);
+  --sidebar-primary: oklch(0.7698 0.1758 58.2);
+  --sidebar-primary-foreground: oklch(0.2241 0.0173 45.2);
+  --sidebar-accent: oklch(0.3418 0.0338 358.4);
+  --sidebar-accent-foreground: oklch(0.9537 0.0189 75.4);
+  --sidebar-border: oklch(0.3612 0.0262 48.9);
+  --sidebar-ring: oklch(0.7698 0.1758 58.2);
+
+  --shadow-soft: 0 2px 10px -4px oklch(0 0 0 / 0.4);
+  --shadow-card: 0 10px 30px -18px oklch(0 0 0 / 0.6);
+  --shadow-pop: 0 18px 40px -22px oklch(0 0 0 / 0.7);
+}
+
+.dark .hero-light-decor {
+  display: none;
+}
+
+.dark .hero-dark-background {
+  display: block;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+@keyframes clo-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes clo-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.28);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@utility animate-rise {
+  animation: clo-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-pop {
+  animation: clo-pop 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes clo-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(var(--clo-tilt, 0deg));
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(calc(var(--clo-tilt, 0deg) + 1.2deg));
+  }
+}
+
+@keyframes clo-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+    opacity: 1;
+  }
+}
+
+@utility animate-float-slow {
+  animation: clo-float 9s ease-in-out infinite;
+}
+
+@utility animate-float-slower {
+  animation: clo-float 12s ease-in-out infinite;
+}
+
+@utility animate-drift {
+  animation: clo-drift 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Hero brand lettering (glossy 3D confectionery text) ───────────── */
+
+.hero-brand-title {
+  --clo-letter-stroke: 0.085em;
+  --clo-letter-depth: oklch(0.24 0.03 45);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.02em;
+  margin: 0;
+  font-family: "Fredoka", var(--font-display), ui-rounded, system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero-brand-title > span {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  padding: 0.04em 0.06em 0.12em;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  paint-order: stroke fill;
+}
+
+/* Extrusion + thick candy border, painted behind the gradient face */
+.hero-brand-title > span::before,
+.hero-brand-title > span::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  padding: inherit;
+  pointer-events: none;
+}
+
+.hero-brand-title > span::before {
+  z-index: -1;
+  -webkit-text-fill-color: var(--clo-letter-face);
+  color: var(--clo-letter-face);
+  -webkit-text-stroke: var(--clo-letter-stroke) var(--clo-letter-border);
+  text-shadow:
+    0 0.014em 0 var(--clo-letter-depth),
+    0 0.028em 0 var(--clo-letter-depth),
+    0 0.042em 0 var(--clo-letter-depth),
+    0 0.056em 0 var(--clo-letter-depth),
+    0 0.07em 0 var(--clo-letter-depth),
+    0 0.084em 0 var(--clo-letter-depth),
+    0 0.098em 0 var(--clo-letter-depth),
+    0 0.112em 0 var(--clo-letter-depth),
+    0 0.13em 0.02em oklch(0.24 0.03 45 / 0.45),
+    0 0.2em 0.28em oklch(0.24 0.03 45 / 0.32);
+}
+
+/* Specular highlight along the upper half of the letters */
+.hero-brand-title > span::after {
+  z-index: 1;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    oklch(1 0 0 / 0.85) 0%,
+    oklch(1 0 0 / 0.35) 26%,
+    oklch(1 0 0 / 0) 48%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hero-brand-title__chocolate {
+  --clo-letter-face: oklch(0.38 0.05 48);
+  --clo-letter-border: oklch(0.24 0.035 44);
+  font-size: clamp(2.1rem, 7.4vw, 5.1rem);
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.58 0.062 52) 0%,
+    oklch(0.45 0.058 48) 42%,
+    oklch(0.31 0.038 44) 100%
+  );
+}
+
+.hero-brand-title__orange {
+  --clo-letter-face: oklch(0.74 0.17 58);
+  --clo-letter-border: oklch(0.47 0.13 47);
+  --clo-letter-depth: oklch(0.42 0.115 45);
+  font-size: clamp(2.7rem, 10.2vw, 6.9rem);
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.9 0.14 76) 0%,
+    oklch(0.8 0.175 62) 40%,
+    oklch(0.64 0.17 48) 100%
+  );
+}
+
+.dark .hero-brand-title {
+  --clo-letter-depth: oklch(0.18 0.025 45);
+}
+
+.dark .hero-brand-title__chocolate {
+  --clo-letter-border: oklch(0.19 0.03 44);
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.66 0.07 54) 0%,
+    oklch(0.5 0.062 48) 44%,
+    oklch(0.35 0.042 44) 100%
+  );
+}
+
+.dark .hero-brand-title__orange {
+  --clo-letter-border: oklch(0.4 0.12 45);
+  --clo-letter-depth: oklch(0.32 0.1 44);
+  background-image: linear-gradient(
+    to bottom,
+    oklch(0.94 0.13 80) 0%,
+    oklch(0.84 0.18 63) 40%,
+    oklch(0.68 0.175 48) 100%
+  );
+}
+
+.dark .hero-brand-title > span::after {
+  background-image: linear-gradient(
+    to bottom,
+    oklch(1 0 0 / 0.95) 0%,
+    oklch(1 0 0 / 0.45) 28%,
+    oklch(1 0 0 / 0) 50%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-brand-title__chocolate {
+    font-size: clamp(3rem, 4.6vw, 5.1rem);
+  }
+  .hero-brand-title__orange {
+    font-size: clamp(4rem, 6.4vw, 6.9rem);
+  }
+}
